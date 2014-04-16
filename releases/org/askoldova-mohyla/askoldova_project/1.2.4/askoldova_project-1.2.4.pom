@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.askoldova-mohyla</groupId>
+	<artifactId>askoldova_project</artifactId>
+	<version>1.2.4</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<gu.utils.scm.url>scm:git:git@bitbucket.org:askoldova/askoldova-mohyla.git</gu.utils.scm.url>
+	</properties>
+
+	<scm>
+		<connection>${gu.utils.scm.url}</connection>
+		<developerConnection>${gu.utils.scm.url}</developerConnection>
+		<tag>askoldova_project-1.2.4</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>gu-releases</id>
+			<url>${gu.repo.url}/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>gu-snapshots</id>
+			<url>${gu.repo.url}/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>jboss-packaging-maven-plugin</artifactId>
+					<version>2.2</version>
+					<!-- Enable packaging types and lifecycle bindings. -->
+					<extensions>true</extensions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<modules>
+		<module>askoldova_ui_lib</module>
+		<module>askoldova_war</module>
+		<module>askoldova_sar</module>
+		<module>askoldova_ear</module>
+	</modules>
+
+</project>
+
