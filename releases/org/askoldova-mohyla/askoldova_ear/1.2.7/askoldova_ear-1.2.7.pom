@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>askoldova_project</artifactId>
+		<groupId>org.askoldova-mohyla</groupId>
+		<version>1.2.7</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>askoldova_ear</artifactId>
+
+	<packaging>ear</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<displayName>askoldova</displayName>
+
+					<jboss>${build.outputDirectory}/META-INF/jboss-app.xml</jboss>
+					<modules>
+						<webModule>
+							<groupId>org.askoldova-mohyla</groupId>
+							<artifactId>askoldova_war</artifactId>
+							<contextRoot>/askoldova</contextRoot>
+						</webModule>
+
+						<jarModule>
+							<groupId>org.askoldova-mohyla</groupId>
+							<artifactId>askoldova_ui_lib</artifactId>
+							<includeInApplicationXml>true</includeInApplicationXml>
+						</jarModule>
+					</modules>
+
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.askoldova-mohyla</groupId>
+			<artifactId>askoldova_war</artifactId>
+			<type>war</type>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.askoldova-mohyla</groupId>
+			<artifactId>askoldova_ui_lib</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.askoldova-mohyla</groupId>
+			<artifactId>askoldova_sar</artifactId>
+			<type>sar</type>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
